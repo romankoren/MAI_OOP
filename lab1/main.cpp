@@ -25,32 +25,25 @@ int main(int argc, char** argv) {
 				
 				cout << "Введите сторону правильного восьмиугольника" << endl;
 				ptr = new Octagon(cin);
-				ptr->Print();
-				cout << "S = " << ptr->Square() << endl;
-				delete ptr;
-				break;
 				
 			case 2:
 			
 				cout << "Введите стороны треугольника" << endl;
 				ptr = new Triangle(cin);
-				ptr->Print();
-				cout << "S = " << ptr->Square() << endl;
-				delete ptr;
-				break;
 			case 3:
 
 				cout << "Введите сторону квадрата" << endl;
 				ptr = new FSquare(cin);
-				ptr->Print();
-				cout << "S = " << ptr->Square() << endl;
-				delete ptr;
-				break;
-			
+				
 			default:
 				print_menu();
+				continue();
 				
 		}
+		ptr->Print();
+		cout << "S = " << ptr->Square() << endl;
+		delete ptr;
+		break;
 	}
 			
 
