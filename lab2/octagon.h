@@ -2,15 +2,16 @@
 #define	OCTAGON_H
 #include <cstdlib>
 #include <iostream>
+#include "figure.h"
 
-class Octagon {
+class Octagon : public Figure{
 public:
     Octagon();
     Octagon(size_t a);
     Octagon(const Octagon& orig);
 
     Octagon& operator++();
-    double Square();
+    double Square() override;
     friend Octagon operator+(const Octagon& left,const Octagon& right);
 
     friend std::ostream& operator<<(std::ostream& os, const Octagon& obj);
@@ -20,7 +21,7 @@ public:
 
     virtual ~Octagon();
 private:
-    size_t side_a;
+    size_t a;
 };
 
 #endif	/* OCTAGON_H */

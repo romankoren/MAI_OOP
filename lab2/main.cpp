@@ -2,25 +2,26 @@
 #include <iostream>
 
 #include "octagon.h"
-#include "tstackitem.h"
-#include "tstack.h"
+#include "TNode.h"
+#include "list.h"
 
+// Simple list on pointers
 int main(int argc, char** argv) {
 
-    TStack stack;
+    TList list;
 
-    stack.push(Octagon(1));
-    stack.push(Octagon(2));
-    stack.push(Octagon(3));
+    list.push(Octagon(1),0);
+    list.push(Octagon(2),1);
+    list.push(Octagon(1)+Octagon(2),1);
 
-    std::cout << stack;
+    std::cout << list;
 
 
     Octagon t;
 
-    t = stack.pop(); std::cout << t;
-    t = stack.pop(); std::cout << t;
-    t = stack.pop(); std::cout << t;
+    t = list.pop(2); std::cout << t;
+    t = list.pop(1); std::cout << t;
+    t = list.pop(0); std::cout << t;
 
     return 0;
 }

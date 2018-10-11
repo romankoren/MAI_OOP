@@ -5,17 +5,17 @@
 Octagon::Octagon() : Octagon(0) {
 }
 
-Octagon::Octagon(size_t i) : side_a(i) {
-    std::cout << "Octagon created: " << side_a << std::endl;
+Octagon::Octagon(size_t a) : a(a) {
+    std::cout << "Octagon created: " << a << std::endl;
 }
 
 Octagon::Octagon(const Octagon& orig) {
     std::cout << "Octagon copy created" << std::endl;
-    side_a = orig.side_a;
+    a = orig.a;
 }
 
 double Octagon::Square(){
-    double S = 2*(1 + sqrt(2))*side_a;
+    double S = 2*(1 + sqrt(2))*a;
     return S;
 
 }
@@ -25,21 +25,21 @@ Octagon& Octagon::operator=(const Octagon& right) {
     if (this == &right) return *this;
 
     std::cout << "Octagon copied" << std::endl;
-    side_a = right.side_a;
+    a = right.a;
 
     return *this;
 }
 
 Octagon& Octagon::operator++() {
 
-    side_a++;
+    a++;
 
     return *this;
 }
 
 Octagon operator+(const Octagon& left,const Octagon& right) {
 
-    return Octagon(left.side_a+right.side_a);
+    return Octagon(left.a+right.a);
 }
 
 Octagon::~Octagon() {
@@ -48,13 +48,13 @@ Octagon::~Octagon() {
 
 std::ostream& operator<<(std::ostream& os, const Octagon& obj) {
 
-    os << "a=" << obj.side_a << std::endl;
+    os << "a=" << obj.a << " ";
     return os;
 }
 
 std::istream& operator>>(std::istream& is, Octagon& obj) {
 
-    is >> obj.side_a;
+    is >> obj.a;
 
     return is;
 }
